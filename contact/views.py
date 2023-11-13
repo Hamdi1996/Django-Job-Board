@@ -1,5 +1,7 @@
-from django.http import HttpResponse
 from django.shortcuts import render
+from .models import Info
+
 
 def send_msg(request):
-    return HttpResponse("<html><head><title") 
+    myinfo = Info.objects.first()
+    return render(request, 'contact/contact.html', {"myinfo": myinfo})
