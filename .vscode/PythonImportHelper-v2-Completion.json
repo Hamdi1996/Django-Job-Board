@@ -1071,7 +1071,7 @@
         "kind": 6,
         "importPath": "job.models",
         "description": "job.models",
-        "peekOfCode": "class Job(models.Model):\n    owner = models.ForeignKey(User, related_name='job_owner', on_delete=models.CASCADE)\n    title = models.CharField(max_length=200)\n    job_type = models.CharField(max_length=50, choices=JOB_TYPE)\n    description = models.TextField(max_length=1000, blank=True)\n    published_at = models.DateTimeField(auto_now=True)\n    vacancy = models.IntegerField(default=1)\n    salary = models.IntegerField(default=0)\n    experience = models.IntegerField(default=1)\n    category = models.ForeignKey('Category', on_delete=models.CASCADE, default=None)",
+        "peekOfCode": "class Job(models.Model):\n    owner = models.ForeignKey(User, related_name='job_owner', on_delete=models.CASCADE)\n    title = models.CharField(max_length=200, unique=True)\n    job_type = models.CharField(max_length=50, choices=JOB_TYPE)\n    description = models.TextField(max_length=1000, blank=True)\n    published_at = models.DateTimeField(auto_now=True)\n    vacancy = models.IntegerField(default=1)\n    salary = models.IntegerField(default=0)\n    experience = models.IntegerField(default=1)\n    category = models.ForeignKey('Category', on_delete=models.CASCADE, default=None)",
         "detail": "job.models",
         "documentation": {}
     },
@@ -1098,7 +1098,7 @@
         "kind": 2,
         "importPath": "job.models",
         "description": "job.models",
-        "peekOfCode": "def image_upload(instance, filename):\n    fname , extension = filename.split('.')\n    return \"jobs/%s.%s\" % (instance.id, extension)\nclass Job(models.Model):\n    owner = models.ForeignKey(User, related_name='job_owner', on_delete=models.CASCADE)\n    title = models.CharField(max_length=200)\n    job_type = models.CharField(max_length=50, choices=JOB_TYPE)\n    description = models.TextField(max_length=1000, blank=True)\n    published_at = models.DateTimeField(auto_now=True)\n    vacancy = models.IntegerField(default=1)",
+        "peekOfCode": "def image_upload(instance, filename):\n    fname , extension = filename.split('.')\n    return \"jobs/%s.%s\" % (instance.id, extension)\nclass Job(models.Model):\n    owner = models.ForeignKey(User, related_name='job_owner', on_delete=models.CASCADE)\n    title = models.CharField(max_length=200, unique=True)\n    job_type = models.CharField(max_length=50, choices=JOB_TYPE)\n    description = models.TextField(max_length=1000, blank=True)\n    published_at = models.DateTimeField(auto_now=True)\n    vacancy = models.IntegerField(default=1)",
         "detail": "job.models",
         "documentation": {}
     },
@@ -1107,7 +1107,7 @@
         "kind": 5,
         "importPath": "job.models",
         "description": "job.models",
-        "peekOfCode": "JOB_TYPE = (\n    ('Full Time', 'Full Time'),\n    ('Part Time', 'Part Time'),\n)\ndef image_upload(instance, filename):\n    fname , extension = filename.split('.')\n    return \"jobs/%s.%s\" % (instance.id, extension)\nclass Job(models.Model):\n    owner = models.ForeignKey(User, related_name='job_owner', on_delete=models.CASCADE)\n    title = models.CharField(max_length=200)",
+        "peekOfCode": "JOB_TYPE = (\n    ('Full Time', 'Full Time'),\n    ('Part Time', 'Part Time'),\n)\ndef image_upload(instance, filename):\n    fname , extension = filename.split('.')\n    return \"jobs/%s.%s\" % (instance.id, extension)\nclass Job(models.Model):\n    owner = models.ForeignKey(User, related_name='job_owner', on_delete=models.CASCADE)\n    title = models.CharField(max_length=200, unique=True)",
         "detail": "job.models",
         "documentation": {}
     },
@@ -1422,7 +1422,7 @@
         "kind": 5,
         "importPath": "project.urls",
         "description": "project.urls",
-        "peekOfCode": "urlpatterns = [\n    path('accounts/', include('django.contrib.auth.urls')),\n    path('accounts/', include('accounts.urls', namespace='accounts'), name='accounts'),\n    path('admin/', admin.site.urls),\n    path('jobs/', include('job.urls', namespace='jobs')),\n    path('contact-us/', include('contact.urls', namespace='contact')),\n    path('api-auth/', include('rest_framework.urls'))\n    ]\nurlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)\nurlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)",
+        "peekOfCode": "urlpatterns = [\n    path('accounts/', include('django.contrib.auth.urls')),\n    path('accounts/', include('accounts.urls', namespace='accounts'), name='accounts'),\n    path('admin/', admin.site.urls),\n    path('', include('job.urls', namespace='jobs')),\n    path('contact-us/', include('contact.urls', namespace='contact')),\n    path('api-auth/', include('rest_framework.urls'))\n    ]\nurlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)\nurlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)",
         "detail": "project.urls",
         "documentation": {}
     },
