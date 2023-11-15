@@ -734,14 +734,6 @@
         "documentation": {}
     },
     {
-        "label": "DATABASES",
-        "importPath": "project.settings",
-        "description": "project.settings",
-        "isExtraImport": true,
-        "detail": "project.settings",
-        "documentation": {}
-    },
-    {
         "label": "static",
         "importPath": "django.conf.urls.static",
         "description": "django.conf.urls.static",
