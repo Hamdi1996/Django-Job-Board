@@ -1258,7 +1258,7 @@
         "kind": 5,
         "importPath": "project.settings",
         "description": "project.settings",
-        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]\nROOT_URLCONF = 'project.urls'",
+        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    \"whitenoise.middleware.WhiteNoiseMiddleware\",\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]",
         "detail": "project.settings",
         "documentation": {}
     },
@@ -1330,7 +1330,7 @@
         "kind": 5,
         "importPath": "project.settings",
         "description": "project.settings",
-        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATIC_ROOT = 'staticfiles'\nSTATICFILES_STORAGE = \"whitenoise.storage.CompressedManifestStaticFilesStorage\"\n# Default primary key field type",
         "detail": "project.settings",
         "documentation": {}
     },
@@ -1339,7 +1339,7 @@
         "kind": 5,
         "importPath": "project.settings",
         "description": "project.settings",
-        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nSTATICFILES_DIRS = [",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATIC_ROOT = 'staticfiles'\nSTATICFILES_STORAGE = \"whitenoise.storage.CompressedManifestStaticFilesStorage\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field",
         "detail": "project.settings",
         "documentation": {}
     },
@@ -1348,7 +1348,7 @@
         "kind": 5,
         "importPath": "project.settings",
         "description": "project.settings",
-        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nSTATICFILES_DIRS = [\n    BASE_DIR / \"static\",",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATIC_ROOT = 'staticfiles'\nSTATICFILES_STORAGE = \"whitenoise.storage.CompressedManifestStaticFilesStorage\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
         "detail": "project.settings",
         "documentation": {}
     },
@@ -1357,7 +1357,7 @@
         "kind": 5,
         "importPath": "project.settings",
         "description": "project.settings",
-        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nSTATICFILES_DIRS = [\n    BASE_DIR / \"static\",\n    \"/var/www/static/\",",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.2/howto/static-files/\nSTATIC_URL = 'static/'\nSTATIC_ROOT = 'staticfiles'\nSTATICFILES_STORAGE = \"whitenoise.storage.CompressedManifestStaticFilesStorage\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nMEDIA_URL = 'media/'",
         "detail": "project.settings",
         "documentation": {}
     },
@@ -1366,7 +1366,25 @@
         "kind": 5,
         "importPath": "project.settings",
         "description": "project.settings",
-        "peekOfCode": "STATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nSTATICFILES_DIRS = [\n    BASE_DIR / \"static\",\n    \"/var/www/static/\",\n]\nMEDIA_URL = 'media/'\nMEDIA_ROOT = os.path.join(BASE_DIR,\"media\")",
+        "peekOfCode": "STATIC_URL = 'static/'\nSTATIC_ROOT = 'staticfiles'\nSTATICFILES_STORAGE = \"whitenoise.storage.CompressedManifestStaticFilesStorage\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nMEDIA_URL = 'media/'\nMEDIA_ROOT = os.path.join(BASE_DIR,\"media\")\n#Configure email settings\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'",
+        "detail": "project.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATIC_ROOT",
+        "kind": 5,
+        "importPath": "project.settings",
+        "description": "project.settings",
+        "peekOfCode": "STATIC_ROOT = 'staticfiles'\nSTATICFILES_STORAGE = \"whitenoise.storage.CompressedManifestStaticFilesStorage\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nMEDIA_URL = 'media/'\nMEDIA_ROOT = os.path.join(BASE_DIR,\"media\")\n#Configure email settings\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp.gmail.com'",
+        "detail": "project.settings",
+        "documentation": {}
+    },
+    {
+        "label": "STATICFILES_STORAGE",
+        "kind": 5,
+        "importPath": "project.settings",
+        "description": "project.settings",
+        "peekOfCode": "STATICFILES_STORAGE = \"whitenoise.storage.CompressedManifestStaticFilesStorage\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nMEDIA_URL = 'media/'\nMEDIA_ROOT = os.path.join(BASE_DIR,\"media\")\n#Configure email settings\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp.gmail.com'\nEMAIL_HOST_USER = 'youtemail.gmail.com'",
         "detail": "project.settings",
         "documentation": {}
     },
@@ -1375,16 +1393,7 @@
         "kind": 5,
         "importPath": "project.settings",
         "description": "project.settings",
-        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nSTATICFILES_DIRS = [\n    BASE_DIR / \"static\",\n    \"/var/www/static/\",\n]\nMEDIA_URL = 'media/'\nMEDIA_ROOT = os.path.join(BASE_DIR,\"media\")\n#Configure email settings\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp.gmail.com'",
-        "detail": "project.settings",
-        "documentation": {}
-    },
-    {
-        "label": "STATICFILES_DIRS",
-        "kind": 5,
-        "importPath": "project.settings",
-        "description": "project.settings",
-        "peekOfCode": "STATICFILES_DIRS = [\n    BASE_DIR / \"static\",\n    \"/var/www/static/\",\n]\nMEDIA_URL = 'media/'\nMEDIA_ROOT = os.path.join(BASE_DIR,\"media\")\n#Configure email settings\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp.gmail.com'\nEMAIL_HOST_USER = 'youtemail.gmail.com'",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nMEDIA_URL = 'media/'\nMEDIA_ROOT = os.path.join(BASE_DIR,\"media\")\n#Configure email settings\nEMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'\nEMAIL_HOST = 'smtp.gmail.com'\nEMAIL_HOST_USER = 'youtemail.gmail.com'\nEMAIL_HOST_PASSWORD = 'your email password'\nEMAIL_PORT = 587\nEMAIL_USE_TLS = True",
         "detail": "project.settings",
         "documentation": {}
     },
